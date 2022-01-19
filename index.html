@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Spotify API</title>
+</head>
+
+<body>
+    <p>Spotify Search</p>
+    <div class='top'>
+        <input type="text">
+        <!-- DROP DOWN MENU -->
+        <select>
+            <option value="artist">artist</option>
+            <option value="album">album</option>
+        </select>
+        <!-- GO BUTTON -->
+        <button id='go' type="button">Go</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class='results'></div>
+
+    <script id='spotifyId' type="text/x-handlebars-template">
+        {{#spotifyObj}}
+        <div class='result'>
+            <a href={{externalUrl}} target='_blank'>
+                <img src={{image}}>
+            </a>
+            <a href={{externalUrl}} target='_blank'>
+                {{name}}
+            </a>
+        </div>
+        {{/spotifyObj}}
+    </script>
+
+    <!-- BUTTON -->
+    <button id='more' name="button">More</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
