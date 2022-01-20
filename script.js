@@ -5,7 +5,6 @@
     var offsetStart = 0;
     var more = $("#more");
 
-    // GET RESULTS FUNCTION
     function getMoreResults(clickGo) {
         $.ajax({
             url: "https://spicedify.herokuapp.com/spotify",
@@ -17,8 +16,6 @@
             },
             success: function (data) {
                 data = data.artists || data.albums;
-
-                console.log("data from spotify: ", data);
 
                 if (data.next) {
                     offsetStart += 20;
@@ -68,17 +65,14 @@
         });
     }
 
-    // CLICK ON GO
     go.on("click", function () {
         getMoreResults(true);
     });
 
-    // CLICK ON MORE
     more.on("click", function () {
         getMoreResults();
     });
 
-    // INFINITE SCROLL
     var timeoutId;
     function checkInfiniteScroll() {
         clearTimeout(timeoutId);
@@ -92,7 +86,6 @@
         }
     }
 
-    ///////// HB BOILERPLATE CODE /////////
     Handlebars.templates = Handlebars.templates || {};
 
     var templates = document.querySelectorAll(
